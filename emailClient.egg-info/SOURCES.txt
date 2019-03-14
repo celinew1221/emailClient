@@ -1,8 +1,0 @@
-setup.py
-emailClient/__init__.py
-emailClient/emailClient.py
-emailClient.egg-info/PKG-INFO
-emailClient.egg-info/SOURCES.txt
-emailClient.egg-info/dependency_links.txt
-emailClient.egg-info/not-zip-safe
-emailClient.egg-info/top_level.txt
