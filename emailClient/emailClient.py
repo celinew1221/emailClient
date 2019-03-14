@@ -26,10 +26,12 @@ class emailClient:
 
         assert self.fromaddr != None and self.toaddr != None and self.pwd != None
 
-    def sendemail(self, subject, body, attachments=None):
+    def sendemail(self, subject, body, attachments=None, toaddr=None):
+        curr_toaddr = toaddr if toaddr is not None else self.toaddr
+        print('Sending to %s' % curr_toaddr)
         msg = MIMEMultipart()
         msg['From'] = self.fromaddr
-        msg['To'] = self.toaddr
+        msg['To'] = curr_toaddr
         msg['Subject'] = subject
 
         msg.attach(MIMEText(body, 'plain', _charset='UTF-8'))
@@ -49,5 +51,5 @@ class emailClient:
         server.starttls()
         server.login(self.fromaddr, self.pwd)
         text = msg.as_string()
-        server.sendmail(self.fromaddr, self.toaddr, text)
+        server.sendmail(self.fromaddr, curr_toaddr, text)
         server.quit()
