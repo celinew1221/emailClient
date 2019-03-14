@@ -1,1 +1,1 @@
-from .emailClient import sendemail
+from .emailClient import emailClient
